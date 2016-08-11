@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Thursday Warmup</title>
+
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+  <style>
+
+  td {
+
+    background-color: #f0f0f0;
+  }
+
+  td:hover {
+
+    background-color: #e1e1e1;
+    color: #f0f0f0;
+  }
+
+  td, th {
+
+    cursor: pointer;
+    padding: 20px;
+    border: #c3c3c3 solid 5px;
+    text-align: center;
+    font-weight: bolder;
+  }
+
+  th {
+    text-align: right;
+    background-color: #72ff55;
+  }
+
+  table {
+    margin: 20px;
+  }
+
+  .equals {
+
+    color: red;
+  }
+  </style>
+</head>
+<body>
+
+  <nav class="navbar navbar-default">
+    <a class="navbar-brand" href="#">Calculator</a>
+  </nav>
+
+  <div class="container-fluid">
+    <div class="row col-md-offset-5">
+      <table>
+        <thead>
+          <tr><th id="equation" colspan="5">0</th></tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td onclick="addOn('(');">(</td>
+            <td onclick="addOn(')');">)</td>
+            <td class="equals" onclick="$('#equation').text(0)"><strong>C</strong></td>
+            <td onclick="backspace();"><</td>
+          </tr>
+          <tr>
+            <td onclick="addOn(7);">7</td>
+            <td onclick="addOn(8);">8</td>
+            <td onclick="addOn(9);">9</td>
+            <td onclick="addOn(' + ');">+</td>
+          </tr>
+          <tr>
+            <td onclick="addOn(4);">4</td>
+            <td onclick="addOn(5);">5</td>
+            <td onclick="addOn(6);">6</td>
+            <td onclick="addOn(' - ');">-</td>
+          </tr>
+          <tr>
+            <td onclick="addOn(1);">1</td>
+            <td onclick="addOn(2);">2</td>
+            <td onclick="addOn(3);">3</td>
+            <td onclick="addOn(' * ');">*</td>
+          </tr>
+          <tr>
+            <td onclick="addOn('.');">.</td>
+            <td onclick="addOn(0);">0</td>
+            <td class="equals" onclick="$('#history').append('<p>' + $('#equation').text() + ' = ' + eval($('#equation').text()) + '</p>'); $('#equation').text(eval($('#equation').text()));"><strong>=</strong></td>
+            <td onclick="addOn(' / ');">/</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <div id="history">
+      <h4>History</h4>
+    </div>
+  </div>
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+  <script src="./app.js"></script>
+</body>
+</html>
